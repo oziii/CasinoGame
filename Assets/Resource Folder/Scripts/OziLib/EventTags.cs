@@ -12,10 +12,17 @@ namespace OziLib
         static public string TEST_I = "TEST_I";
 
         //Game Action
+        static public string LEVEL_READY = "LEVEL_READY";
         static public string LEVEL_START = "LEVEL_START";
         static public string LEVEL_FAIL = "LEVEL_FAIL";
+        static public string LEVEL_COMPLETE = "LEVEL_COMPLETE";
         static public string LEVEL_END = "LEVEL_END";
         static public string NEXT_LEVEL = "NEXT_LEVEL";
+        static public string LEVEL_RESTART = "LEVEL_RESTART";
+        static public string SPIN_START = "SPIN_START";
+        static public string SPIN_END = "SPIN_END";
+        
+        
 
         static public string COIN_COLLECT = "COIN_COLLECT";
         //Camera Action

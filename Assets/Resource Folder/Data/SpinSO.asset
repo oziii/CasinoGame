@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spinPiecePrefab: {fileID: -4173178702242287078, guid: 884b9c03d32f48e48af8c39e74e3793d,
     type: 3}
-  _spinDuration: 1
-  _spinAmount: 10
-  _spinAudioClip: {fileID: 0}
-  _volume: 0.5
+  _spinDuration: 6
+  _spinPieceAmount: 8
+  _spinEase: 13
+  _spinAudioClip: {fileID: 8300000, guid: ca853f1f9b24f81469cc22578f87da8e, type: 3}
+  _spinStopAudioClip: {fileID: 8300000, guid: b9917379d9f06a046b1d16050b99e6e4, type: 3}
+  _volume: 1
   _pitch: 1

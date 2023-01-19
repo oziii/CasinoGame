@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf30a3f6129718e4dbf2a425a713d0c1, type: 3}
-  m_Name: ItemSO
+  m_Name: ItemSO 3
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: 21300000, guid: 387cc6d547f0e454a86e4bd6c850991e, type: 3}
+  _itemIcon: {fileID: 21300000, guid: afc4a9d2bd42a7f4794f0827214fa79c, type: 3}
   _itemName: 
   _itemMaxAmount: 5
   _itemPrice: 0

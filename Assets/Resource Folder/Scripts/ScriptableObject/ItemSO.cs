@@ -7,6 +7,7 @@ public class ItemSO : ScriptableObject
 {
     [SerializeField] private Sprite _itemIcon;
     [SerializeField] private string _itemName;
+    [SerializeField] private int _itemMaxAmount;
     [SerializeField] private int _itemPrice;
     [SerializeField] private int _itemID;
     [Tooltip("Item Chance")]
@@ -18,4 +19,5 @@ public class ItemSO : ScriptableObject
     public int ItemPrice => _itemPrice;
     public int ItemID => _itemID;
     public float ItemChance => _itemChance;
+    public int İtemMaxAmount => _itemMaxAmount;
 }
