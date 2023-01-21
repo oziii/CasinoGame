@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf30a3f6129718e4dbf2a425a713d0c1, type: 3}
-  m_Name: ItemSO 7
+  m_Script: {fileID: 11500000, guid: 08a165fcccdbfde44bd65d5f56cc584f, type: 3}
+  m_Name: CollectAreaSO
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: 21300000, guid: 104e1f72f0fc42546a7d3c4d6f3f0bf1, type: 3}
-  _itemName: 
-  _itemMaxAmount: 5
-  _itemPrice: 0
-  _itemID: 0
-  _itemChance: 0
+  _collectPiecePrefab: {fileID: 8912121719653638850, guid: c475472f1bc8ad949943a23dc62a14fe,
+    type: 3}

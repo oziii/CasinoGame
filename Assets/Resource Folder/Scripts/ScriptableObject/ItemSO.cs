@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemSO", menuName = "SO/ItemSO")]
 public class ItemSO : ScriptableObject
 {
+    [SerializeField] private ItemType _itemType;
     [SerializeField] private Sprite _itemIcon;
     [SerializeField] private string _itemName;
     [SerializeField] private int _itemMaxAmount;
@@ -20,4 +21,16 @@ public class ItemSO : ScriptableObject
     public int ItemID => _itemID;
     public float ItemChance => _itemChance;
     public int İtemMaxAmount => _itemMaxAmount;
+    
+    public ItemType ItemType => _itemType;
+}
+
+public enum ItemType
+{
+    Point,
+    Weapon,
+    Gold,
+    Chest,
+    Clothes,
+    Bomb
 }

@@ -22,6 +22,11 @@ public class SpinSO : ScriptableObject
     [SerializeField] [Range (0f, 1f)] private float _volume = .5f;
     [SerializeField] [Range (-3f, 3f)] private float _pitch = 1f;
 
+    //
+    // [Space]
+    // [Header("Spin Images")]
+    // [SerializeField] private _
+    
     public SpinPiece SpinPiecePrefab => _spinPiecePrefab;
 
     public float SpinDuration => _spinDuration;
