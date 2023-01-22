@@ -40,6 +40,7 @@ namespace Resource_Folder.Scripts.Managers
         public GeneralSettingsSO GetGeneralSetting()
         {
             return _generalSettingsSO;
+            
         }
         
         #endregion

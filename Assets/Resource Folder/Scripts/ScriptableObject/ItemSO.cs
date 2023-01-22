@@ -25,6 +25,8 @@ namespace Resource_Folder.Scripts.ScriptableObject
         public int İtemMaxAmount => _itemMaxAmount;
     
         public ItemType ItemType => _itemType;
+        
+        public string ItemIconName => _itemIcon.name;
     }
 
     public enum ItemType

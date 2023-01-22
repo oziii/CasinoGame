@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf30a3f6129718e4dbf2a425a713d0c1, type: 3}
-  m_Name: ItemPointSO  (5)
+  m_Script: {fileID: 11500000, guid: 3a189bb168d8d90478a09ea08c2f3d72, type: 3}
+  m_Name: DefaultObject
   m_EditorClassIdentifier: 
-  _itemType: 0
-  _itemIcon: {fileID: 21300000, guid: 094afadbae18a134b973a3cb660bd562, type: 3}
-  _itemName: 
-  _itemMaxAmount: 5
-  _itemPrice: 0
-  _itemID: 0
-  _itemChance: 33
+  m_AddressableAssetSettingsGuid: 19ed29ef8c000254d9736fb6d0d725d1

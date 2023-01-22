@@ -5,6 +5,7 @@ using DG.Tweening;
 using Resource_Folder.Scripts.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.U2D;
 
 namespace Resource_Folder.Scripts.ScriptableObject
 {
@@ -13,6 +14,8 @@ namespace Resource_Folder.Scripts.ScriptableObject
     {
         [Header("Spin Prefabs")]
         [SerializeField] private SpinPiece _spinPiecePrefab;
+        [SerializeField] private SpriteAtlas _spinAtlas;
+        [SerializeField] private SpriteAtlas _spinItemAtlas;
         [SerializeField] private List<SpinField> _spinFields;
         [Space]
         [Header ("Spin Settings")]
@@ -51,6 +54,10 @@ namespace Resource_Folder.Scripts.ScriptableObject
         public ItemSO BombItem => _bombItem;
 
         public List<SpinLevel> SpinLevels => _spinLevels;
+
+        public SpriteAtlas SpinAtlas => _spinAtlas;
+
+        public SpriteAtlas SpinItemAtlas => _spinItemAtlas;
     }
 
     [Serializable]
@@ -59,6 +66,8 @@ namespace Resource_Folder.Scripts.ScriptableObject
         public SpinType spinType;
         public Sprite spinBaseImage;
         public Sprite spinIndicatorImage;
+        public string spinBaseName;
+        public string spinIndicatorName;
     }
 
     public enum SpinType

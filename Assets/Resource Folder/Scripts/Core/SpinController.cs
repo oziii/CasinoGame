@@ -97,7 +97,7 @@ namespace Resource_Folder.Scripts.Core
         private void SpinItemsCreate(bool _isRiskFree)
         {
             _items = new ItemSO[_spinSO.SpinPieceAmount];
-            var spinItems = _spinSO.SpinLevels[_levelIndex % _spinSO.SpinLevels.Count].spinItems;
+            var spinItems = _spinSO.SpinLevels[_levelIndex-1 % _spinSO.SpinLevels.Count].spinItems;
             if (!_isRiskFree)
             {
                 _items[0] = _spinSO.BombItem;
@@ -120,7 +120,7 @@ namespace Resource_Folder.Scripts.Core
                 var piece = Instantiate(_spinSO.SpinPiecePrefab, _spinItemsParent);
                 piece.transform.RotateAround(_spinItemsParent.position, Vector3.back, _pieceAngle * i);
                 _spinPieceList.Add(piece);
-                piece.SetItem(_items[i], _levelIndex);
+                piece.SetItem(_spinSO,_items[i], _levelIndex);
             }
         }
 
@@ -128,8 +128,11 @@ namespace Resource_Folder.Scripts.Core
         {
             var spinField = _spinSO.SpinFields.FirstOrDefault(x => x.spinType == spinType);
             if (spinField == null) return;
-            _spinIndicatorImage.sprite = spinField.spinIndicatorImage;
-            _spinBaseImage.sprite = spinField.spinBaseImage;
+            // _spinIndicatorImage.sprite = spinField.spinIndicatorImage;
+            // _spinBaseImage.sprite = spinField.spinBaseImage;
+            
+            _spinBaseImage.sprite = _spinSO.SpinAtlas.GetSprite(spinField.spinBaseImage.name);
+            _spinIndicatorImage.sprite = _spinSO.SpinAtlas.GetSprite(spinField.spinIndicatorImage.name);
         }
         
         private void SetAudio()

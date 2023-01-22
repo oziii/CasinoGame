@@ -18,4 +18,4 @@ MonoBehaviour:
   _itemMaxAmount: 1
   _itemPrice: 0
   _itemID: 0
-  _itemChance: 100
+  _itemChance: 15

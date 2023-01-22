@@ -19,10 +19,10 @@ namespace Resource_Folder.Scripts.Core
     
         #region PUBLIC_METHODS
     
-        public void SetItem(ItemSO itemSO, int amount)
+        public void SetItem(SpinSO spinSO,ItemSO itemSO, int amount)
         {
             _itemSO = itemSO;
-            _itemIconImage.sprite = _itemSO.ItemIcon;
+            _itemIconImage.sprite = spinSO.SpinItemAtlas.GetSprite(itemSO.ItemIconName);
             _itemAmount = amount * Random.Range(1, itemSO.İtemMaxAmount);
             _itemAmountText.text = "x" + _itemAmount;
         }
