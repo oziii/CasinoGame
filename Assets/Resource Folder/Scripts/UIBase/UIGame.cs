@@ -1,60 +1,69 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using OziLib;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIGame : UIBase
+namespace Resource_Folder.Scripts.UIScript
 {
-    #region UNITY_METHODS
-
-    private void OnEnable()
+    public class UIGame : UIBase
     {
-        EventManager.StartListening(EventTags.LEVEL_START, OnGameStart);
-        EventManager.StartListening(EventTags.LEVEL_START, OnGameEnd);
-    }
+        [SerializeField] private Button _exitButton;
+    
+    
+        #region UNITY_METHODS
 
-    private void OnDisable()
-    {
-        EventManager.StopListening(EventTags.LEVEL_START, OnGameStart);
-        EventManager.StopListening(EventTags.LEVEL_START, OnGameEnd);
-    }
+        private void OnEnable()
+        {
+            EventManager.StartListening(EventTags.LEVEL_START, OnGameStart);
+            EventManager.StartListening(EventTags.LEVEL_START, OnGameEnd);
+        }
+
+        private void OnDisable()
+        {
+            EventManager.StopListening(EventTags.LEVEL_START, OnGameStart);
+            EventManager.StopListening(EventTags.LEVEL_START, OnGameEnd);
+        }
+
+        private void Start()
+        {
+            _exitButton.onClick.AddListener(OnExitButtonClicked);
+        }
 
 
 
-    #endregion
+        #endregion
     
-    #region PUBLIC_METHODS
+        #region PUBLIC_METHODS
     
-    #endregion
+        #endregion
     
-    #region PRIVATE_METHODS
+        #region PRIVATE_METHODS
     
-    #endregion
+        #endregion
     
-    #region OVERRIDE_METHODS
-    
-    public override void UpdateUI<T>(T data)
-    {
-        base.UpdateUI(data);
-    }
-    
-    #endregion
+        #region OVERRIDE_METHODS
 
-    #region EVENTS
+        #endregion
+
+        #region EVENTS
     
-    private void OnGameEnd(object arg0)
-    {
+        private void OnGameEnd(object arg0)
+        {
         
-    }
+        }
 
-    private void OnGameStart(object arg0)
-    {
+        private void OnGameStart(object arg0)
+        {
         
-    }
+        }
     
-    #endregion
+        private void OnExitButtonClicked()
+        { 
+            EventManager.TriggerEvent(EventTags.LEVEL_END, null);
+        }
+    
+        #endregion
     
     
 
+    }
 }

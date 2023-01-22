@@ -14,10 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spinPiecePrefab: {fileID: -4173178702242287078, guid: 884b9c03d32f48e48af8c39e74e3793d,
     type: 3}
+  _spinFields:
+  - spinType: 0
+    spinBaseImage: {fileID: 21300000, guid: 294b5829014cf0a44a9a1c38e1b44a68, type: 3}
+    spinIndicatorImage: {fileID: 21300000, guid: f7c9708c336d5e0409b7c1372f3764e9,
+      type: 3}
+  - spinType: 1
+    spinBaseImage: {fileID: 21300000, guid: ce23977495ebbdf45ba1969671aafc0d, type: 3}
+    spinIndicatorImage: {fileID: 21300000, guid: f0a889e3d77f83b4e81a31e0f3e1d4de,
+      type: 3}
+  - spinType: 2
+    spinBaseImage: {fileID: 21300000, guid: 549be76316686bf41afa9052835b4ec0, type: 3}
+    spinIndicatorImage: {fileID: 21300000, guid: f94c260217528534f9d9265976efd6ab,
+      type: 3}
   _spinDuration: 8
-  _spinPieceAmount: 4
+  _spinPieceAmount: 8
   _spinEase: 13
   _spinAudioClip: {fileID: 8300000, guid: ca853f1f9b24f81469cc22578f87da8e, type: 3}
   _spinStopAudioClip: {fileID: 8300000, guid: b9917379d9f06a046b1d16050b99e6e4, type: 3}
   _volume: 1
   _pitch: 1
+  _bombItem: {fileID: 11400000, guid: 36c388000ed80a64785bfc27bb63bca4, type: 2}
+  _spinLevels:
+  - spinItems:
+    - {fileID: 11400000, guid: 3556138c42b9c334cb7170d78034749c, type: 2}
+    - {fileID: 11400000, guid: afd2f6b1ba768d1488afc6151a6b249e, type: 2}
+    - {fileID: 11400000, guid: 1b834669e707b484794e72b2ded76d54, type: 2}
+    - {fileID: 11400000, guid: 13b54f041fb53df41a164324899c3386, type: 2}
+    - {fileID: 11400000, guid: a01f7ebe8e11e934eb42205bc7644d23, type: 2}
+    - {fileID: 11400000, guid: 6f4340202e834604bbe294bd7f51e1ae, type: 2}
+    - {fileID: 11400000, guid: 9358c1f734d26ad4397f6ed059730a1d, type: 2}
+    - {fileID: 11400000, guid: 43f0bff61a6e78049a92e2a828c9d42f, type: 2}
+  - spinItems:
+    - {fileID: 11400000, guid: 3556138c42b9c334cb7170d78034749c, type: 2}
+    - {fileID: 11400000, guid: afd2f6b1ba768d1488afc6151a6b249e, type: 2}
+    - {fileID: 11400000, guid: 1b834669e707b484794e72b2ded76d54, type: 2}
+    - {fileID: 11400000, guid: 13b54f041fb53df41a164324899c3386, type: 2}
+    - {fileID: 11400000, guid: a01f7ebe8e11e934eb42205bc7644d23, type: 2}
+    - {fileID: 11400000, guid: 6f4340202e834604bbe294bd7f51e1ae, type: 2}
+    - {fileID: 11400000, guid: 9358c1f734d26ad4397f6ed059730a1d, type: 2}
+    - {fileID: 11400000, guid: 43f0bff61a6e78049a92e2a828c9d42f, type: 2}

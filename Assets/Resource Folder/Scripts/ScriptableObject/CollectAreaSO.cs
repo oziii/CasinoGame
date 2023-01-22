@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using Resource_Folder.Scripts.Core;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CollectAreaSO", menuName = "SO/CollectAreaSO")]
-public class CollectAreaSO : ScriptableObject
+namespace Resource_Folder.Scripts.ScriptableObject
 {
-    [SerializeField] private CollectPiece _collectPiecePrefab;
+    [CreateAssetMenu(fileName = "CollectAreaSO", menuName = "SO/CollectAreaSO")]
+    public class CollectAreaSO : UnityEngine.ScriptableObject
+    {
+        [SerializeField] private CollectPiece _collectPiecePrefab;
     
-    public CollectPiece CollectPiecePrefab => _collectPiecePrefab;
+        public CollectPiece CollectPiecePrefab => _collectPiecePrefab;
+    }
 }

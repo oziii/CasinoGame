@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf30a3f6129718e4dbf2a425a713d0c1, type: 3}
+  m_Name: ItemChestSO 7
+  m_EditorClassIdentifier: 
+  _itemType: 3
+  _itemIcon: {fileID: 21300000, guid: e2dcfa8e20f115c48bbfc13a7c7d3dfa, type: 3}
+  _itemName: 
+  _itemMaxAmount: 2
+  _itemPrice: 0
+  _itemID: 0
+  _itemChance: 33

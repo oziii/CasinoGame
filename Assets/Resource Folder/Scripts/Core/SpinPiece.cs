@@ -1,60 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
+using Resource_Folder.Scripts.ScriptableObject;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpinPiece : MonoBehaviour
+namespace Resource_Folder.Scripts.Core
 {
-    [SerializeField] private Image _itemIconImage;
-    [SerializeField] private TextMeshProUGUI _itemAmountText;
-    private ItemSO _itemSO;
-    private float _chanceWeight;
-    private int _pieceIndex;
-    #region UNITY_METHODS
+    public class SpinPiece : MonoBehaviour
+    {
+        [SerializeField] private Image _itemIconImage;
+        [SerializeField] private TextMeshProUGUI _itemAmountText;
+        private ItemSO _itemSO;
+        private float _chanceWeight;
+        private int _pieceIndex;
+        private int _itemAmount;
+        #region UNITY_METHODS
 
-    #endregion
+        #endregion
     
-    #region PUBLIC_METHODS
+        #region PUBLIC_METHODS
     
-    public void SetItem(ItemSO itemSO, int amount)
-    {
-        _itemSO = itemSO;
-        _itemIconImage.sprite = _itemSO.ItemIcon;
-        _itemAmountText.text = "x" + amount * Random.Range(1,itemSO.İtemMaxAmount);
-    }
+        public void SetItem(ItemSO itemSO, int amount)
+        {
+            _itemSO = itemSO;
+            _itemIconImage.sprite = _itemSO.ItemIcon;
+            _itemAmount = amount * Random.Range(1, itemSO.İtemMaxAmount);
+            _itemAmountText.text = "x" + _itemAmount;
+        }
     
-    public ItemSO GetItem()
-    {
-        return _itemSO;
-    }
+        public ItemSO GetItem()
+        {
+            return _itemSO;
+        }
     
-    public int GetAmount()
-    {
-        return int.Parse(_itemAmountText.text.Substring(1));
-    }
+        public int GetAmount()
+        {
+            return _itemAmount;
+        }
     
-    public void SetChanceWeight(float chanceWeight)
-    {
-        _chanceWeight = chanceWeight;
-    }
+        public void SetChanceWeight(float chanceWeight)
+        {
+            _chanceWeight = chanceWeight;
+        }
     
-    public float GetChanceWeight()
-    {
-        return _chanceWeight;
-    }
+        public float GetChanceWeight()
+        {
+            return _chanceWeight;
+        }
     
-    #endregion
+        #endregion
     
-    #region PRIVATE_METHODS
+        #region PRIVATE_METHODS
     
-    #endregion
+        #endregion
     
-    #region OVERRIDE_METHODS
+        #region OVERRIDE_METHODS
     
-    #endregion
+        #endregion
 
-    #region EVENTS
+        #region EVENTS
 
-    #endregion
+        #endregion
+    }
 }

@@ -1,76 +1,81 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using OziLib;
+using Resource_Folder.Scripts.ScriptableObject;
 using UnityEngine;
 
-public class CollectAreaController : MonoBehaviour
+namespace Resource_Folder.Scripts.Core
 {
-    [SerializeField] private CollectAreaSO _collectAreaSO;
-    [SerializeField] private Transform _contentParent;
-
-    private List<CollectPiece> _collectPieces;
-    
-    #region UNITY_METHODS
-
-    private void OnEnable()
+    public class CollectAreaController : MonoBehaviour
     {
-        EventManager.StartListening(EventTags.SPIN_END, OnSpinEnd);
-    }
-    
-    private void OnDisable()
-    {
-        EventManager.StopListening(EventTags.SPIN_END, OnSpinEnd);
-    }
+        [SerializeField] private CollectAreaSO _collectAreaSO;
+        [SerializeField] private Transform _contentParent;
 
-    private void Start()
-    {
-        _collectPieces = new List<CollectPiece>();
-    }
+        private List<CollectPiece> _collectPieces;
+    
+        #region UNITY_METHODS
 
-    #endregion
-    
-    #region PUBLIC_METHODS
-    
-    #endregion
-    
-    #region PRIVATE_METHODS
-
-    private void CreateCollectItem(SpinPiece spinPiece)
-    {
-        var collectItem = _collectPieces.FirstOrDefault(x => x.GetItemSO() == spinPiece.GetItem());
-        if (collectItem == null)
+        private void OnEnable()
         {
-            collectItem = Instantiate(_collectAreaSO.CollectPiecePrefab, _contentParent);
-            collectItem.SetItemSO(spinPiece.GetItem());
-            _collectPieces.Add(collectItem);
+            EventManager.StartListening(EventTags.SPIN_END, OnSpinEnd);
         }
-        collectItem.SetPiece(spinPiece.GetItem().ItemIcon, spinPiece.GetAmount());
-    }
     
-    #endregion
-    
-    #region OVERRIDE_METHODS
-    
-    #endregion
-
-    #region EVENTS
-
-    private void OnSpinEnd(object arg0)
-    {
-        if (arg0 is SpinPiece spinPiece)
+        private void OnDisable()
         {
-            if (spinPiece.GetItem().ItemType == ItemType.Bomb)
+            EventManager.StopListening(EventTags.SPIN_END, OnSpinEnd);
+        }
+
+        private void Start()
+        {
+            _collectPieces = new List<CollectPiece>();
+        }
+
+        #endregion
+    
+        #region PUBLIC_METHODS
+    
+        #endregion
+    
+        #region PRIVATE_METHODS
+
+        private void CreateCollectItem(SpinPiece spinPiece)
+        {
+            var collectItem = _collectPieces.Find(x => x.GetItemSO() == spinPiece.GetItem());
+            if (collectItem == null)
             {
-                EventManager.TriggerEvent(EventTags.LEVEL_FAIL, this);
-                return;
+                collectItem = Instantiate(_collectAreaSO.CollectPiecePrefab, _contentParent);
+                collectItem.SetItemSO(spinPiece.GetItem());
+                _collectPieces.Add(collectItem);
             }
-            //Collect UI bir şeyler yap
-            EventManager.TriggerEvent(EventTags.LEVEL_COMPLETE, this);
-            CreateCollectItem(spinPiece);
+            collectItem.SetPiece(spinPiece.GetItem().ItemIcon, spinPiece.GetAmount());
         }
-    }
     
-    #endregion
+        #endregion
+    
+        #region OVERRIDE_METHODS
+    
+        #endregion
+
+        #region EVENTS
+
+        private void OnSpinEnd(object arg0)
+        {
+            if (arg0 is SpinPiece spinPiece)
+            {
+                if (spinPiece.GetItem().ItemType == ItemType.Bomb)
+                {
+                    Debug.Log("Level Faield");
+                    EventManager.TriggerEvent(EventTags.LEVEL_FAIL, this);
+                    return;
+                }
+                //Collect UI bir şeyler yap
+                //O tipte kart yarat kendinde varsa oldugu yere gitsin ve eklensin yoksa yeni bir yere eklensin.
+                Debug.Log("Level Completed");
+                EventManager.TriggerEvent(EventTags.LEVEL_COMPLETE, this);
+                CreateCollectItem(spinPiece);
+            }
+        }
+    
+        #endregion
+    }
 }

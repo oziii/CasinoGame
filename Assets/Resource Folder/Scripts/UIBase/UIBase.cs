@@ -1,27 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class UIBase : MonoBehaviour
+namespace Resource_Folder.Scripts.UIScript
 {
-    public virtual void ShowUI()
+    public abstract class UIBase : MonoBehaviour
     {
-        gameObject.SetActive(true);
+        [SerializeField] protected UIType _uiType;
+
+        public virtual void ShowUI()
+        {
+            gameObject.SetActive(true);
+        }
+    
+        public virtual void HideUI()
+        {
+            gameObject.SetActive(false);
+        }
+    
+        public virtual void UpdateUI<T>(T data)
+        {
+            // Update UI
+        }
+    
+        public virtual void UpdateUI()
+        {
+            // Update UI
+        }
+        
+        public UIType GetUIType()
+        {
+            return _uiType;
+        }
+    
     }
     
-    public virtual void HideUI()
-    {
-        gameObject.SetActive(false);
+    public enum UIType
+    { 
+        Game,
+        Exit,
+        Fail,
+        Rewards
     }
-    
-    public virtual void UpdateUI<T>(T data)
-    {
-        // Update UI
-    }
-    
-    public virtual void UpdateUI()
-    {
-        // Update UI
-    }
-    
 }
