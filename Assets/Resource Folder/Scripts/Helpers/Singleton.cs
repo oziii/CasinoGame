@@ -60,7 +60,7 @@ namespace Resource_Folder.Scripts.Helpers
 
         private void OnApplicationQuit()
         {
-            applicationIsQuitting = true;
+            //applicationIsQuitting = true;
         }
 
         private void OnDestroy()

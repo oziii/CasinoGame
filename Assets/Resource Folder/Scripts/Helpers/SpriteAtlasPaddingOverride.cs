@@ -13,7 +13,6 @@ using UnityEditor.U2D;
 public class SpriteAtlasPaddingOverride
 
 {
-
     [MenuItem("Assets/SpriteAtlas Set Padding 64")]
 
     public static void SpriteAtlasCustomPadding()

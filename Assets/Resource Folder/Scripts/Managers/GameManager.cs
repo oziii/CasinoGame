@@ -1,7 +1,9 @@
+using System;
 using OziLib;
 using Resource_Folder.Scripts.Helpers;
 using Resource_Folder.Scripts.ScriptableObject;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Resource_Folder.Scripts.Managers
 {
@@ -32,9 +34,18 @@ namespace Resource_Folder.Scripts.Managers
             EventManager.TriggerEvent(EventTags.LEVEL_READY, _currentLevel);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                OnLevelComplete(null);
+            }
+        }
+
         #endregion
     
         #region PUBLIC_METHODS
+        
 
 
         public GeneralSettingsSO GetGeneralSetting()
@@ -63,6 +74,11 @@ namespace Resource_Folder.Scripts.Managers
         private void OnLevelComplete(object arg0)
         {
             _currentLevel++;
+            if (_currentLevel > _generalSettingsSO.GoldEachLevel)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                return;
+            }
             EventManager.TriggerEvent(EventTags.LEVEL_READY, _currentLevel);
         }
 

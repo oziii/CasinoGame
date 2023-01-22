@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Card Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 64
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e7a996d54138f35478af2d6847aa0f17, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0770434082720d5439fb453a644d6693, type: 3}
+  - {fileID: 21300000, guid: 6c19b0e03bc109b43abe234c6d7b7760, type: 3}
+  - {fileID: 21300000, guid: 8241a1e3413929a458e67cbe919900e2, type: 3}
+  - {fileID: 21300000, guid: dd12acf5056660c44b2fbc344678f5ee, type: 3}
+  - {fileID: 21300000, guid: c9ceba16fae31f0408fc2ed0915e50b4, type: 3}
+  - {fileID: 21300000, guid: 0661a07807af6d84ba95d46f333ac0dc, type: 3}
+  - {fileID: 21300000, guid: 9c9eb3989d1862447b4c8a1c2f615fde, type: 3}
+  - {fileID: 21300000, guid: 6c5bc599d09ddfd4bb9d3d78e7bb3a2e, type: 3}
+  - {fileID: 21300000, guid: 8db086ec91c6bc74ca094d3fbac5aaf9, type: 3}
+  - {fileID: 21300000, guid: 816bd87ff7ee1fb44b37d4e27c3e9762, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ui_card_panel_zone_white
+  - ui_card_panel_zone_super
+  - ui_card_panel_zone_current_white
+  - ui_card_zone_map_frame
+  - ui_card_panel_zone_bg
+  - ui_card_frame_12px_neutral
+  - ui_card_panel_zone_coming
+  - ui_card_panel_zone_current
+  - ui_card_frame_gardient
+  - ui_card_frame_4px_zone
+  m_RenderDataMap: {}
+  m_Tag: Card Atlas
+  m_IsVariant: 0

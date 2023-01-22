@@ -61,7 +61,7 @@ namespace Resource_Folder.Scripts.Core
     
         private void SpinGenerate(int levelIndex)
         {
-            _generalSettingsSO = GameManager.Instance.GetGeneralSetting();
+            _generalSettingsSO = Resources.Load<GeneralSettingsSO>("ScriptableObject/GeneralSettingsSO");
             _levelIndex = levelIndex;
             
             if (_spinPieceList.Count > 0)

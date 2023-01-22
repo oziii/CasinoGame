@@ -35,7 +35,7 @@ MonoBehaviour:
       type: 3}
     spinBaseName: ui_spin_golden_base
     spinIndicatorName: ui_spin_golden_indicator
-  _spinDuration: 8
+  _spinDuration: 0.5
   _spinPieceAmount: 8
   _spinEase: 13
   _spinAudioClip: {fileID: 8300000, guid: ca853f1f9b24f81469cc22578f87da8e, type: 3}
