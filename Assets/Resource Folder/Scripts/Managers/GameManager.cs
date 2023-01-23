@@ -68,7 +68,7 @@ namespace Resource_Folder.Scripts.Managers
     
         private void OnLevelEnd(object arg0)
         {
-        
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         private void OnLevelComplete(object arg0)

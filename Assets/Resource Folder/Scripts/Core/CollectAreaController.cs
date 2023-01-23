@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using OziLib;
 using Resource_Folder.Scripts.ScriptableObject;
 using UnityEngine;
@@ -64,15 +65,18 @@ namespace Resource_Folder.Scripts.Core
             {
                 if (spinPiece.GetItem().ItemType == ItemType.Bomb)
                 {
-                    Debug.Log("Level Faield");
                     EventManager.TriggerEvent(EventTags.LEVEL_FAIL, this);
                     return;
                 }
                 //Collect UI bir şeyler yap
                 //O tipte kart yarat kendinde varsa oldugu yere gitsin ve eklensin yoksa yeni bir yere eklensin.
                 Debug.Log("Level Completed");
-                EventManager.TriggerEvent(EventTags.LEVEL_COMPLETE, this);
-                CreateCollectItem(spinPiece);
+                DOVirtual.DelayedCall(2f, () =>
+                {
+                    EventManager.TriggerEvent(EventTags.LEVEL_COMPLETE, this);
+                    CreateCollectItem(spinPiece);
+                });
+
             }
         }
     

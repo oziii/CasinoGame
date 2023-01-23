@@ -128,9 +128,6 @@ namespace Resource_Folder.Scripts.Core
         {
             var spinField = _spinSO.SpinFields.FirstOrDefault(x => x.spinType == spinType);
             if (spinField == null) return;
-            // _spinIndicatorImage.sprite = spinField.spinIndicatorImage;
-            // _spinBaseImage.sprite = spinField.spinBaseImage;
-            
             _spinBaseImage.sprite = _spinSO.SpinAtlas.GetSprite(spinField.spinBaseImage.name);
             _spinIndicatorImage.sprite = _spinSO.SpinAtlas.GetSprite(spinField.spinIndicatorImage.name);
         }

@@ -17,6 +17,7 @@ namespace OziLib
         static public string LEVEL_FAIL = "LEVEL_FAIL";
         static public string LEVEL_COMPLETE = "LEVEL_COMPLETE";
         static public string LEVEL_END = "LEVEL_END";
+        static public string LEVEL_EXIT = "LEVEL_EXIT";
         static public string NEXT_LEVEL = "NEXT_LEVEL";
         static public string LEVEL_RESTART = "LEVEL_RESTART";
         static public string SPIN_START = "SPIN_START";

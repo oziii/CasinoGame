@@ -58,7 +58,7 @@ namespace Resource_Folder.Scripts.UIScript
     
         private void OnExitButtonClicked()
         { 
-            EventManager.TriggerEvent(EventTags.LEVEL_END, null);
+            EventManager.TriggerEvent(EventTags.LEVEL_EXIT, this);
         }
     
         #endregion
