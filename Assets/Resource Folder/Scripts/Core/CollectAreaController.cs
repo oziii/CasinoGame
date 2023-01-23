@@ -66,7 +66,7 @@ namespace Resource_Folder.Scripts.Core
                 .SetEase(Ease.OutBack)
                 .OnComplete(() =>
                 {
-                    _rewardItemImage.transform.DOScale(Vector3.one * .1f, .3f)
+                    _rewardItemImage.transform.DOScale(Vector3.one * .1f, .5f)
                         .SetEase(Ease.InBack)
                         .SetDelay(.7f)
                         .OnComplete(() =>
