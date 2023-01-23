@@ -1,17 +1,22 @@
 using System;
+using System.Collections.Generic;
 using OziLib;
+using Resource_Folder.Scripts.Core;
 using Resource_Folder.Scripts.Helpers;
 using Resource_Folder.Scripts.ScriptableObject;
+using Resource_Folder.Scripts.UIScript;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Resource_Folder.Scripts.Managers
 {
-    public class GameManager : OziSingleton<GameManager>
+    public class GameManager : MonoBehaviour
     {
-    
+        public static GameManager Instance;
+        
         [SerializeField] private GeneralSettingsSO _generalSettingsSO;
         private int _currentLevel;
+        private List<RewardData> _rewardDatas;
         #region UNITY_METHODS
 
         private void OnEnable()
@@ -25,11 +30,22 @@ namespace Resource_Folder.Scripts.Managers
             EventManager.StopListening(EventTags.LEVEL_COMPLETE, OnLevelComplete);
             EventManager.StopListening(EventTags.LEVEL_END, OnLevelEnd);
         }
-
-
-
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        
         private void Start()
         {
+            _rewardDatas = new List<RewardData>();
             _currentLevel = 1;
             EventManager.TriggerEvent(EventTags.LEVEL_READY, _currentLevel);
         }
@@ -46,12 +62,20 @@ namespace Resource_Folder.Scripts.Managers
     
         #region PUBLIC_METHODS
         
-
-
-        public GeneralSettingsSO GetGeneralSetting()
+        public void AddRewardPiece(CollectPiece rewardPiece)
         {
-            return _generalSettingsSO;
-            
+            var data = new RewardData
+            {
+                item = rewardPiece.GetItemSO(),
+                amount = rewardPiece.GetItemAmount()
+            };
+            _rewardDatas.Add(data);
+
+        }
+        
+        public List<RewardData> GetRewardData()
+        {
+            return _rewardDatas;
         }
         
         #endregion

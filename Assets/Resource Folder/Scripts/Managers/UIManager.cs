@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using OziLib;
 using Resource_Folder.Scripts.UIScript;
@@ -18,6 +19,7 @@ namespace Resource_Folder.Scripts.Managers
             EventManager.StartListening(EventTags.LEVEL_END, OnGameEnd);
             EventManager.StartListening(EventTags.LEVEL_FAIL, OnGameFail);
             EventManager.StartListening(EventTags.LEVEL_EXIT, OnGameExit);
+            EventManager.StartListening(EventTags.COLLECT_REWARD, OnCollectReward);
         }
 
         private void OnDisable()
@@ -26,6 +28,7 @@ namespace Resource_Folder.Scripts.Managers
             EventManager.StopListening(EventTags.LEVEL_END, OnGameEnd);
             EventManager.StopListening(EventTags.LEVEL_FAIL, OnGameFail);
             EventManager.StopListening(EventTags.LEVEL_EXIT, OnGameExit);
+            EventManager.StopListening(EventTags.COLLECT_REWARD, OnCollectReward);
         }
 
         private void Start()
@@ -53,12 +56,7 @@ namespace Resource_Folder.Scripts.Managers
         {
             return _uiBases.FirstOrDefault(uiBase => uiBase.GetUIType() == uıType);
         }
-        
-        private void OnGameStart()
-        {
-            GetUI(UIType.Game).ShowUI();
-        }
-        
+
         private void AllUIHide()
         {
             foreach (var uiBase in _uiBases)
@@ -87,7 +85,6 @@ namespace Resource_Folder.Scripts.Managers
         
         private void OnGameFail(object arg0)
         {
-            Debug.Log("Level Faield");
             GetUI(UIType.Fail).ShowUI();
         }
         
@@ -95,6 +92,13 @@ namespace Resource_Folder.Scripts.Managers
         {
             Debug.Log("Level Exit");
             GetUI(UIType.Exit).ShowUI();
+        }
+        
+        private void OnCollectReward(object arg0)
+        {
+            Debug.Log("Level Reward");
+            var data = GameManager.Instance.GetRewardData();
+            GetUI(UIType.Rewards).ShowUI(data);
         }
     
         #endregion

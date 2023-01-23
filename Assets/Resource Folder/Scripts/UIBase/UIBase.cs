@@ -10,8 +10,18 @@ namespace Resource_Folder.Scripts.UIScript
         {
             gameObject.SetActive(true);
         }
+
+        public virtual void ShowUI<T>(T data)
+        {
+            gameObject.SetActive(true);
+        }
     
         public virtual void HideUI()
+        {
+            gameObject.SetActive(false);
+        }
+        
+        public virtual void HideUI<T>(T data)
         {
             gameObject.SetActive(false);
         }

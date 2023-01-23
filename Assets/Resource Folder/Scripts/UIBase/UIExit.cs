@@ -27,7 +27,7 @@ public class UIExit : UIBase
    
    private void OnCollectRewardsButtonClick()
    {
-      EventManager.TriggerEvent(EventTags.LEVEL_END, this);
+      EventManager.TriggerEvent(EventTags.COLLECT_REWARD, this);
       HideUI();
    }
    

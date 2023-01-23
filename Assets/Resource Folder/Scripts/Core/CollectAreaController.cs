@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using OziLib;
+using Resource_Folder.Scripts.Managers;
 using Resource_Folder.Scripts.ScriptableObject;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Resource_Folder.Scripts.Core
 {
@@ -11,9 +14,10 @@ namespace Resource_Folder.Scripts.Core
     {
         [SerializeField] private CollectAreaSO _collectAreaSO;
         [SerializeField] private Transform _contentParent;
-
+        [SerializeField] private Image _rewardItemImage;
+        
         private List<CollectPiece> _collectPieces;
-    
+        private SpinSO _spinSO;
         #region UNITY_METHODS
 
         private void OnEnable()
@@ -29,6 +33,7 @@ namespace Resource_Folder.Scripts.Core
         private void Start()
         {
             _collectPieces = new List<CollectPiece>();
+            _spinSO = Resources.Load<SpinSO>("ScriptableObject/SpinSO");
         }
 
         #endregion
@@ -48,7 +53,28 @@ namespace Resource_Folder.Scripts.Core
                 collectItem.SetItemSO(spinPiece.GetItem());
                 _collectPieces.Add(collectItem);
             }
-            collectItem.SetPiece(spinPiece.GetItem().ItemIcon, spinPiece.GetAmount());
+            collectItem.SetPiece(_spinSO.SpinItemAtlas.GetSprite(spinPiece.GetItem().ItemIconName), spinPiece.GetAmount());
+            GameManager.Instance.AddRewardPiece(collectItem);
+        }
+
+        private void CollectItemAnim(SpinPiece spinPiece, Action callback)
+        {
+            _rewardItemImage.sprite = _spinSO.SpinItemAtlas.GetSprite(spinPiece.GetItem().ItemIconName);
+            _rewardItemImage.transform.localScale = Vector3.one * .1f;
+            _rewardItemImage.gameObject.SetActive(true);
+            _rewardItemImage.transform.DOScale(Vector3.one, .5f)
+                .SetEase(Ease.OutBack)
+                .OnComplete(() =>
+                {
+                    _rewardItemImage.transform.DOScale(Vector3.one * .1f, .3f)
+                        .SetEase(Ease.InBack)
+                        .SetDelay(.7f)
+                        .OnComplete(() =>
+                        {
+                            _rewardItemImage.gameObject.SetActive(false);
+                            callback?.Invoke();
+                        });
+                });
         }
     
         #endregion
@@ -65,18 +91,17 @@ namespace Resource_Folder.Scripts.Core
             {
                 if (spinPiece.GetItem().ItemType == ItemType.Bomb)
                 {
+                    Debug.Log("Level Fail");
                     EventManager.TriggerEvent(EventTags.LEVEL_FAIL, this);
                     return;
                 }
-                //Collect UI bir şeyler yap
-                //O tipte kart yarat kendinde varsa oldugu yere gitsin ve eklensin yoksa yeni bir yere eklensin.
-                Debug.Log("Level Completed");
-                DOVirtual.DelayedCall(2f, () =>
-                {
-                    EventManager.TriggerEvent(EventTags.LEVEL_COMPLETE, this);
-                    CreateCollectItem(spinPiece);
-                });
 
+                Debug.Log("Level Completed");
+                CollectItemAnim(spinPiece, () =>
+                {
+                    CreateCollectItem(spinPiece);
+                    EventManager.TriggerEvent(EventTags.LEVEL_COMPLETE, this);
+                });
             }
         }
     

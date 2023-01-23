@@ -27,5 +27,10 @@ namespace Resource_Folder.Scripts.Core
         {
             return _itemSO;
         }
+        
+        public int GetItemAmount()
+        {
+            return _itemAmount;
+        }
     }
 }
