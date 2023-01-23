@@ -2,18 +2,25 @@ using System.Collections;
 
 using System.Collections.Generic;
 
-using UnityEditor;
+
 
 using UnityEngine;
 
 using UnityEngine.U2D;
 
+#if UNITY_EDITOR
+using UnityEditor;
 using UnityEditor.U2D;
+#endif
+
 
 public class SpriteAtlasPaddingOverride
 
 {
+#if UNITY_EDITOR
     [MenuItem("Assets/SpriteAtlas Set Padding 64")]
+
+    
 
     public static void SpriteAtlasCustomPadding()
 
@@ -44,5 +51,5 @@ public class SpriteAtlasPaddingOverride
         AssetDatabase.SaveAssets();
 
     }
-
+#endif
 }
